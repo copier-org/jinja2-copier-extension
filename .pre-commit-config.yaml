@@ -1,0 +1,48 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff format
+        entry: ruff format
+        args: [--force-exclude]
+        language: system
+        require_serial: true
+        types_or: [python, pyi]
+        minimum_pre_commit_version: "2.9.2"
+
+      - id: ruff-check
+        name: ruff lint
+        entry: ruff check
+        args: [--force-exclude, --fix]
+        language: system
+        require_serial: true
+        types_or: [python, pyi]
+        minimum_pre_commit_version: "2.9.2"
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        require_serial: true
+        types: [python]
+
+      - id: trailing-whitespace
+        name: trim trailing whitespace
+        entry: trailing-whitespace-fixer
+        language: system
+        types: [text]
+        stages: [pre-commit, pre-push, manual]
+
+      - id: end-of-file-fixer
+        name: fix end of files
+        entry: end-of-file-fixer
+        language: system
+        types: [text]
+        stages: [pre-commit, pre-push, manual]
+
+      - id: check-merge-conflict
+        name: check for merge conflicts
+        entry: check-merge-conflict
+        args: [--assume-in-merge]
+        language: system
+        types: [text]
