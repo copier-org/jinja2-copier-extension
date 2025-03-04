@@ -1,0 +1,56 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  # renovate: datasource=pypi depName=uv
+  UV_VERSION: "0.6.4"
+
+jobs:
+  tests:
+    name: ${{ matrix.os }} / ${{ matrix.python-version }}
+    runs-on: ${{ matrix.image }}
+    strategy:
+      matrix:
+        os: [Ubuntu, macOS, Windows]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        include:
+          - os: Ubuntu
+            image: ubuntu-latest
+          - os: Windows
+            image: windows-latest
+          - os: macOS
+            image: macos-latest
+      fail-fast: false
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: "true"
+          cache-suffix: ${{ matrix.python-version }}
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run pre-commit hooks
+        run: uv run pre-commit run --all-files --show-diff-on-failure
+
+      - name: Run pytest
+        run: uv run pytest

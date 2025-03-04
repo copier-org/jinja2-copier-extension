@@ -1,0 +1,96 @@
+[project]
+name = "jinja2-copier-extension"
+version = "0.0.0"
+description = "Copier's built-in Jinja2 extension, inspired by Ansible, outsourced for you"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13"
+]
+keywords = ["jinja", "jinja2", "extension", "filters", "copier"]
+authors = [{ name = "Sigurd Spieckermann", email = "sigurd.spieckermann@gmail.com" }]
+readme = "README.md"
+dependencies = [
+  "jinja2>=3.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/copier-org/jinja2-copier-extension"
+Repository = "https://github.com/copier-org/jinja2-copier-extension"
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6.0.0"]
+
+[dependency-groups]
+dev = [
+  "mypy==1.15.0",
+  "pre-commit==4.1.0",
+  "pre-commit-hooks==5.0.0",
+  "ruff==0.9.9"
+]
+test = [
+  "pychoir==0.0.27",
+  "pytest==8.3.5",
+  "pytest-cov==6.0.0",
+  "time-machine==2.16.0",
+  "tzdata==2025.1; sys_platform=='win32'"
+]
+typing = [
+  "types-pyyaml==6.0.12.20241230"
+]
+
+[tool.uv]
+default-groups = ["dev", "test", "typing"]
+
+[tool.ruff]
+src = ["src"]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+ignore = ["A005", "ANN401", "D100", "D104", "D107", "FIX002", "ISC001", "TD003"]
+select = ["ALL"]
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true
+
+[tool.ruff.lint.isort]
+force-single-line = true
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ARG001", "S101", "S701"]
+
+[tool.mypy]
+implicit_reexport = true
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report=term-missing"
+
+[tool.coverage.run]
+source_pkgs = ["jinja2_copier_extension"]
+omit = ["tests"]
+
+[tool.coverage.report]
+exclude_also = ["if TYPE_CHECKING:", "raise NotImplementedError"]
+
+[tool.hatch.build.targets.sdist]
+packages = ["src/jinja2_copier_extension"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
