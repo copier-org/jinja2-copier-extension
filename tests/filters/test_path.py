@@ -53,7 +53,7 @@ def test_expandvars(env: Environment, var: str) -> None:
 
 
 def test_fileglob(env: Environment, tmp_path: Path) -> None:
-    """Test getting all files in a filesystem subtree accoring to a glob pattern."""
+    """Test getting all files in a filesystem subtree according to a glob pattern."""
     build_file_tree(
         {
             tmp_path / "a.txt": "",

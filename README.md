@@ -453,7 +453,7 @@ Expand a path with the shell variables of form `$var` and `${var}`.
 
 #### `fileglob(pattern: str) → list[str]`
 
-Get all files in a filesystem subtree accoring to a glob pattern.
+Get all files in a filesystem subtree according to a glob pattern.
 
 **Example:**
 
