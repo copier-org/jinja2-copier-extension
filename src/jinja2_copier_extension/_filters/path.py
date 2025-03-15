@@ -70,7 +70,7 @@ def do_expandvars(path: str) -> str:
 
 
 def do_fileglob(pattern: str) -> list[str]:
-    """Get all files in a filesystem subtree accoring to a glob pattern.
+    """Get all files in a filesystem subtree according to a glob pattern.
 
     Args:
         pattern: A glob pattern.
