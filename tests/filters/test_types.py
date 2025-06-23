@@ -61,7 +61,7 @@ if TYPE_CHECKING:
         ("nOnE", False),
     ],
 )
-def test_bool(env: Environment, value: Any, expected: bool) -> None:  # noqa: FBT001
+def test_bool(env: Environment, value: Any, expected: bool) -> None:
     """Test getting the type name of an object."""
     assert render(env, "[[ v | bool is boolean ]]", v=value) == "True"
     assert render(env, "[[ v | bool ]]", v=value) == str(expected)

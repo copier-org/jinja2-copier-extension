@@ -73,7 +73,7 @@ required-imports = ["from __future__ import annotations"]
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["ARG001", "S101", "S701"]
+"tests/**" = ["ARG001", "FBT001", "S101", "S701"]
 
 [tool.mypy]
 implicit_reexport = true
