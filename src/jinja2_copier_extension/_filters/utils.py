@@ -122,7 +122,7 @@ def do_mandatory(value: _T, msg: str | None = None) -> _T:
 
 
 def do_ternary(
-    condition: bool | None,
+    condition: bool | None,  # noqa: FBT001
     true_val: Any,
     false_val: Any,
     none_val: Any = MISSING,
