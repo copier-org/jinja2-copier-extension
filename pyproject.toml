@@ -46,7 +46,7 @@ test = [
   "tzdata==2025.2; sys_platform=='win32'"
 ]
 typing = [
-  "types-pyyaml==6.0.12.20250822"
+  "types-pyyaml==6.0.12.20250915"
 ]
 
 [tool.uv]
