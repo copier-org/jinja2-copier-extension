@@ -40,7 +40,7 @@ dev = [
 ]
 test = [
   "pychoir==0.0.29",
-  "pytest==9.0.0",
+  "pytest==9.0.1",
   "pytest-cov==7.0.0",
   "time-machine==2.19.0",
   "tzdata==2025.2; sys_platform=='win32'"
