@@ -79,8 +79,8 @@ convention = "google"
 implicit_reexport = true
 strict = true
 
-[tool.pytest.ini_options]
-addopts = "--cov --cov-report=term-missing"
+[tool.pytest]
+addopts = ["--cov", "--cov-report=term-missing"]
 
 [tool.coverage.run]
 source_pkgs = ["jinja2_copier_extension"]
