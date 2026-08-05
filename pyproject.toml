@@ -59,7 +59,7 @@ line-length = 88
 target-version = "py39"
 
 [tool.ruff.lint]
-ignore = ["A005", "ANN401", "D100", "D104", "D107", "FIX002", "ISC001", "TD003"]
+ignore = ["A005", "ANN401", "CPY001", "D100", "D104", "D107", "FIX002", "ISC001", "TD003"]
 select = ["ALL"]
 
 [tool.ruff.lint.flake8-type-checking]
