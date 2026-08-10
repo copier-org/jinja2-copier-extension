@@ -42,7 +42,7 @@ test = [
   "pychoir==0.0.30",
   "pytest==9.1.1",
   "pytest-cov==7.1.0",
-  "time-machine==3.3.1",
+  "time-machine==3.4.0",
   "tzdata==2026.3; sys_platform=='win32'"
 ]
 typing = [
