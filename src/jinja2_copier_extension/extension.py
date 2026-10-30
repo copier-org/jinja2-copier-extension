@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 from typing import Any
-from typing import Callable
 from warnings import warn
 
 from jinja2.ext import Extension
@@ -52,6 +51,7 @@ from ._filters.yaml import do_to_nice_yaml
 from ._filters.yaml import do_to_yaml
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
     from collections.abc import Mapping
 
     from jinja2 import Environment
