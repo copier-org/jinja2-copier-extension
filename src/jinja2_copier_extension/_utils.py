@@ -4,11 +4,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 from typing import Any
+from typing import TypeGuard
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
-
-    from typing_extensions import TypeGuard
 
 
 __all__ = ["MISSING", "is_sequence"]
