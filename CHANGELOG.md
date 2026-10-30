@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog], and this project adheres to [Semantic Versioning][semver].
 
+## [0.3.0] – 2026-10-30
+
+### Added
+
+- Add support for Python 3.15.
+
+### Removed
+
+- Drop support for Python 3.10.
+
 ## [0.2.0] – 2025-11-20
 
 ### Added
@@ -29,3 +39,4 @@ The format is based on [Keep a Changelog][keepachangelog], and this project adhe
 
 [0.1.0]: https://github.com/copier-org/jinja2-copier-extension/releases/tag/v0.1.0
 [0.2.0]: https://github.com/copier-org/jinja2-copier-extension/releases/tag/v0.2.0
+[0.3.0]: https://github.com/copier-org/jinja2-copier-extension/releases/tag/v0.3.0
